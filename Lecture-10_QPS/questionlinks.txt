@@ -1,0 +1,15 @@
+
+1) Count minimum swaps
+
+https://www.geeksforgeeks.org/count-minimum-swap-to-make-string-palindrome/
+
+2) Queries left and right shift
+
+https://www.geeksforgeeks.org/queries-left-right-circular-shift-array/
+
+3) Nobita Scored Good marks
+
+https://hack.codingblocks.com/admin/contents/1743/problem
+
+
+4) Broken calculator
