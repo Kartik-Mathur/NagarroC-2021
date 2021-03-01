@@ -11,17 +11,19 @@ void Print(int *a, int n) {
 	cout << endl;
 }
 
+// a[i] == *(a+i)
+// a[j] == *(a+j)
+// a[min] == *(a+min)
 void BubbleSort(int* a, int n) {
 	for (int i = 0 ; i <= n - 2 ; i++) {
 		for (int j = 0 ; j <= n - 2 - i ; j++) {
-			if (a[j] > a[j + 1]) {
+			if (*(a + j) > a[j + 1]) {
 				// swap a[j] and a[j+1]
 				swap(a[j], a[j + 1]);
 			}
 		}
 	}
 }
-
 
 int main() {
 
