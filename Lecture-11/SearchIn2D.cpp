@@ -1,3 +1,4 @@
+// SearchIn2D.cpp
 #include <iostream>
 using namespace std;
 
@@ -21,23 +22,29 @@ int main() {
 		}
 		cout << endl;
 	}
+	int key;
+	cout << "Enter key to search ";
+	cin >> key;
+	bool isPresent = false;
 
-	cout << "Wave Print ";
-	for (int col = 0 ; col < c ; col++) {
-		// Check if its even or odd
-		if (col % 2 == 0) {
-			// Even Column -> Print row from 0 to r-1
-			for (int row = 0 ; row < r ; row++) {
-				cout << a[row][col] << " ";
+	for (int row = 0 ; row < r; row++) {
+		for (int col = 0 ; col < c ; col++) {
+			if (a[row][col] == key) {
+				cout << "Key Found at " << row << " and " << col ;
+				isPresent = true;
+				break;
 			}
 		}
-		else {
-			// Odd Column-> Print row from r-1 to 0
-			for (int row = r - 1; row >= 0; row--) {
-				cout << a[row][col] << " ";
-			}
+
+		if (isPresent == true) {
+			break;
 		}
 	}
+
+	if (isPresent == false) {
+		cout << "Key is not Found";
+	}
+
 	cout << endl;
 	return 0;
 }
