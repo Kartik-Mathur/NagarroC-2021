@@ -1,0 +1,9 @@
+1) https://www.geeksforgeeks.org/program-to-find-transpose-of-a-matrix/
+
+2) https://www.geeksforgeeks.org/find-column-with-maximum-sum-in-a-matrix/
+
+3) https://www.geeksforgeeks.org/create-a-matrix-with-alternating-rectangles-of-0-and-x/
+
+4) https://www.geeksforgeeks.org/a-boolean-matrix-question/?ref=lbp
+
+5) Print Diagonal
