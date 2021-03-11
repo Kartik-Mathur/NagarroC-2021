@@ -1,5 +1,6 @@
 // Doubts - Union.cpp
 #include <iostream>
+#include <algorithm>
 using namespace std;
 #define F(a,n) for(int i = 0 ; i < n ; i++){cin>>a[i];}
 // 5
