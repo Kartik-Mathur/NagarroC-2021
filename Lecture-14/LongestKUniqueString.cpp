@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-int howManyUniqueChar(int *freq) {
+int isSizeK(int *freq) {
 	int cnt = 0;
 	for (int i = 0 ; i < 26 ; i++) {
 		if (freq[i] > 0) {
@@ -17,19 +17,17 @@ void solve(char *a, int k) {
 	int freq[26] = {0};
 	int ans = -1;
 	while (a[j] != '\0') {
-
 		freq[a[j] - 'a']++;
-		if (howManyUniqueChar(freq) == k) {
+		if (isSizeK(freq) == k) {
 			int window_len = j - i + 1;
 			ans = max(ans, window_len);
 		}
-		else if (howManyUniqueChar(freq) > k) {
-			while (a[i] != '\0' and howManyUniqueChar(freq) > k) {
+		else if (isSizeK(freq) > k) {
+			while (a[i] != '\0' and isSizeK(freq) > k) {
 				freq[a[i] - 'a']--;
 				i++;
 			}
 		}
-
 		j++;
 	}
 
