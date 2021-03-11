@@ -43,7 +43,7 @@ string solve(string s) {
 
 int main() {
 
-	string s = "Hello Coding Blocks 80986 and 90997";
+	string s = "HelloCodinglocks8086and564&&8765ll90997";
 
 	cout << solve(s) << endl;
 
