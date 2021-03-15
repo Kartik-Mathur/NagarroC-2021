@@ -57,9 +57,7 @@ int solve1(char* a) { // Here upper case and lower case doesnt matter
 	return ans;
 }
 
-
 int main() {
-
 	char a[100];
 	cin >> a;
 	for (int i = 0 ; a[i] != '\0' ; i++) {
@@ -67,8 +65,6 @@ int main() {
 	}
 	cout << endl;
 	// cout << solve(a) << endl;
-
-
 	return 0;
 }
 
