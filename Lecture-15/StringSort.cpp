@@ -4,7 +4,8 @@ using namespace std;
 bool compare(string a, string b) {
 	// What if I want to compare strings like bat and batman
 	int i = 0, j = 0;
-	while (i < a.length() and j < b.length()) {
+
+	while (i < a.size() and j < b.size()) {
 		if (a[i] > b[j]) {
 			return false;
 		}
