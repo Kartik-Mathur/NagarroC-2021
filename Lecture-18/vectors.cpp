@@ -14,8 +14,7 @@ int main() {
 	// Initialization of vector
 	// vector <int> v({1, 2, 3, 4, 5});
 	// int n = 5;
-	int x = 10; // integer
-	cout << x << endl;
+
 
 	int a[] = {5, 4, 6, 7, 43, 2, 1};
 	int n = sizeof(a) / sizeof(int);
