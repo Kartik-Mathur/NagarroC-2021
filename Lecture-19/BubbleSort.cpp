@@ -24,7 +24,7 @@ void BubbleSortRec(int *a, int n, int i, int j) {
 	if (j == n - 1) {
 		BubbleSortRec(a, n, i + 1, 0);
 	}
-	else { // j != n-1
+	else { // j!= n-1
 		if (a[j] > a[j + 1]) {
 			swap(a[j], a[j + 1]);
 		}
