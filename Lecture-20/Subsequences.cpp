@@ -1,11 +1,20 @@
 #include <iostream>
+#include <cstring>
+#include <vector>
 using namespace std;
+vector<string> v;
+
+string x = "abc";
 
 void subsequences(char *inp, int i, char *out, int j) {
 	// base case
 	if (inp[i] == '\0') {
 		out[j] = '\0';
+		// string s(out);
+		// v.push_back(s);
+		// if (s > x) {
 		cout << out << endl;
+		// }
 		return;
 	}
 
@@ -25,7 +34,13 @@ int main() {
 	cin >> inp;
 
 	subsequences(inp, 0, out, 0);
-
+	cout << "Printing Vector" << endl;
+	// sort(v.begin(), v.end());
+	// for (int i = 0 ; i < v.size() ; i++) {
+	// 	if (v[i] > x) {
+	// 		cout << v[i] << endl;
+	// 	}
+	// }
 	return 0;
 }
 
