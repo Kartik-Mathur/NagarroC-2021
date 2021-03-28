@@ -1,13 +1,15 @@
-// RemoveExtraSpaces.cpp
 #include <iostream>
-#include <cstring>
 #include <vector>
+#include <cstring>
+#include <algorithm>
 using namespace std;
 
+// Welcome to Coding Blocks
+// Blocks Coding to Welcome
 int main() {
 
 	string s;
-	s = "   Welcome   To    Coding Blocks";
+	s = "Welcome To Coding Blocks we are learning string";
 	// "Welcome To Coding Blocks."
 	string ans;
 	vector<string> v;
@@ -28,7 +30,12 @@ int main() {
 		ptr = strtok(NULL, " ");
 	}
 
-	// sort(v.begin(), v.end());
+	// reverse(v.begin(), v.end());
+	int i = 0, j = v.size() - 1;
+	while (i < j) {
+		swap(v[i++], v[j--]);
+	}
+
 	for (int i = 0 ; i < v.size() ; i++) {
 		if (i != v.size() - 1) {
 			ans += v[i] + ' ';
@@ -37,10 +44,11 @@ int main() {
 			ans += v[i];
 		}
 	}
+
 	cout << ans << endl;
+
 	return 0;
 }
-
 
 
 
