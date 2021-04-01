@@ -7,7 +7,6 @@ using namespace std;
 int main() {
 
 	string s = "efXTgalACB";
-
 	string lower, upper;
 
 	for (int i = 0 ; i < s.length() ; i++) {
@@ -21,6 +20,7 @@ int main() {
 
 	sort(lower.begin(), lower.end());
 	sort(upper.begin(), upper.end());
+	reverse(upper.begin(), upper.end());
 	cout << s << endl;
 	string ans;
 	int i = 0, j = 0;
