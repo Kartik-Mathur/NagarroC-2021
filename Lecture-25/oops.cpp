@@ -38,6 +38,38 @@ public:
 		average = X.average;
 	}
 
+	// 4. Copy Assignment Operator
+	// d = b;
+	void operator=(Car &X) {
+		cout << "Inside Copy Assignment" << endl;
+		if (name != NULL) {
+			delete [] name;
+			name = NULL;
+		}
+
+		name = new char[strlen(X.name) + 1];
+		strcpy(name, X.name);
+		price = X.price;
+		average = X.average;
+		model = X.model;
+	}
+
+	// Operator Overloading
+	void operator+=(Car X) {
+		char *x = new char[strlen(X.name) + strlen(name) + 1];
+		strcpy(x, name);
+
+		delete name;
+		name = x;
+
+		strcat(name, X.name);
+
+		price += X.price;
+		model += X.model;
+		average += X.average;
+	}
+
+
 	void print() {
 		cout << "Name   : " << name << endl;
 		cout << "Price  : " << price << endl;
@@ -88,14 +120,23 @@ int main() {
 
 	Car b("AUDI", 180, 12, 2017);
 	Car c = a;
-	Car d = c;
+
+	Car d = c; // Copy Constructor, and Car d(c);
 	// a = "BMW"
 	a.name[0] = 'T';
 
+	// Copy Assignment Operator
+	d = b;// This is assignment
+
+
+
 	a.print();
 	b.print();
-	c.print();
-	d.print();
+	a += b;
+	a.print();
+
+	// c.print();
+	// d.print();
 
 	return 0;
 }
