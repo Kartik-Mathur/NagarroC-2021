@@ -18,7 +18,7 @@ public:
 	void push_back(T data) {
 		if (cs == ms) {
 			T *oldarr = arr;
-			int  oldms = ms;
+			int oldms = ms;
 
 			ms = 2 * ms;
 			arr = new T[ms];
@@ -54,6 +54,9 @@ public:
 		return ms;
 	}
 };
+
+T
+
 
 int main() {
 
