@@ -2,25 +2,26 @@
 #include <iostream>
 using namespace std;
 
+template<typename T>
 class Vector {
 public:
-	int *arr;
+	T *arr;
 	int ms;
 	int cs;
 
 	Vector(int s = 2) {
 		ms = s;
 		cs = 0;
-		arr = new int[ms];
+		arr = new T[ms];
 	}
 
-	void push_back(int data) {
+	void push_back(T data) {
 		if (cs == ms) {
-			int *oldarr = arr;
+			T *oldarr = arr;
 			int  oldms = ms;
 
 			ms = 2 * ms;
-			arr = new int[ms];
+			arr = new T[ms];
 			// Copy the oldarr into the arr
 			for (int i = 0 ; i < oldms ; i++) {
 				arr[i] = oldarr[i];
@@ -41,7 +42,7 @@ public:
 	}
 
 	// Operator Overloading needs to be done!
-	int operator[](int i) {
+	T operator[](int i) {
 		return arr[i];
 	}
 
@@ -56,17 +57,20 @@ public:
 
 int main() {
 
-	Vector v;
+	Vector<float> v;
 
-	v.push_back('A');
-	v.push_back('B');
-	v.push_back('C');
-	v.push_back('D');
+	// v.push_back('A');
+	// v.push_back('B');
+	// v.push_back('C');
+	// v.push_back('D');
 	// v.push_back(1);
 	// v.push_back(110);
 	// v.push_back(20);
 	// v.push_back(4);
-
+	v.push_back(1.11);
+	v.push_back(110.12);
+	v.push_back(20.34);
+	v.push_back(4.454);
 
 	for (int i = 0 ; i < v.size() ; i++) {
 		cout << v[i] << " ";
