@@ -10,6 +10,8 @@ public:
 	int average;
 	int model;
 
+	// By Default functions present in class: Constructor, Copy Const., Copy Assignment, Destructor
+
 	//  1. Constructor
 	Car() {
 		name = NULL;
@@ -56,11 +58,11 @@ public:
 
 	// Operator Overloading
 	void operator+=(Car X) {
-		char *x = new char[strlen(X.name) + strlen(name) + 1];
-		strcpy(x, name);
+		char *x1 = new char[strlen(X.name) + strlen(name) + 1];
+		strcpy(x1, name);
 
-		delete name;
-		name = x;
+		delete []name;
+		name = x1;
 
 		strcat(name, X.name);
 
@@ -100,6 +102,11 @@ public:
 		strcpy(name, n);
 	}
 
+	// 4. Destructor: To destroy an Object
+	~Car() {
+		cout << "Destroying car " << name << endl;
+	}
+
 };
 //////////////////// BLUE PRINT //////////////////////////////
 
@@ -121,19 +128,31 @@ int main() {
 	Car b("AUDI", 180, 12, 2017);
 	Car c = a;
 
-	Car d = c; // Copy Constructor, and Car d(c);
+	Car d("Maruti", 200, 20, 2020);
+	// Car d = c; // Copy Constructor, and Car d(c);
 	// a = "BMW"
-	a.name[0] = 'T';
+	// a.name[0] = 'T';
 
 	// Copy Assignment Operator
-	d = b;// This is assignment
+	// d = b;// This is assignment
 
+	Car *dynamicCar = new Car;
+	// First thing we need to do is assign the memory to the name bucket
+	// So that we can copy the car name
+	char arr[] = "Tesla";
 
+	(*dynamicCar).name = new char[strlen(arr) + 1];
+	strcpy((*dynamicCar).name, arr);
+
+	// delete dynamicCar;
+	// dynamicCar = NULL;
 
 	a.print();
 	b.print();
-	a += b;
-	a.print();
+	c.print();
+	d.print();
+	// a += b;
+	// a.print();
 
 	// c.print();
 	// d.print();
