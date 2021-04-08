@@ -9,28 +9,29 @@ public:
 	char *name;
 	int average;
 	int model;
-
+	const int tyres;
 	// By Default functions present in class: Constructor, Copy Const., Copy Assignment, Destructor
 
 	//  1. Constructor
-	Car() {
-		name = NULL;
+	// Initialization list
+	Car(): tyres(4), name(NULL) {
+		// name = NULL;
 		cout << "In Default Constructor" << endl;
 	}
 
 	// 2. Parameterized Constructor
-	Car(char *n, int p, int av, int m) {
+	Car(char *n, int p, int av, int m): tyres(4), price(p), average(av), model(m) {
 		cout << "In Parameterized Constructor" << endl;
 		name = new char[strlen(n) + 1];
 		strcpy(name, n);
-		price = p;
-		average = av;
-		model = m;
+		// price = p;
+		// average = av;
+		// model = m;
 	}
 
 	// 3. Copy Constructor
 	// Car c = b;
-	Car(Car &X) {
+	Car(Car &X): tyres(4) {
 		cout << "Inside Copy Constructor" << endl;
 		name = new char[strlen(X.name) + 1];
 		strcpy(name, X.name);
