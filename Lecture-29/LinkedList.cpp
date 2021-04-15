@@ -92,8 +92,65 @@ bool searchRecursively(node* head, int key) {
 	else {
 		return searchRecursively(head->next, key);
 	}
-
 }
+
+////////////////////////////////////// DELETE ////////////////////////////////////
+void DeleteAtFront(node* &head, node* &tail) {
+	if (head == NULL) { // If LL is empty
+		return;
+	}
+	if (head->next == NULL) {// if LL contains only a single node
+		delete head;
+		head = tail = NULL;
+	}
+	else { // if LL contains multiple node
+		node* temp = head;
+		head = head->next;
+		delete temp;
+	}
+}
+
+void DeleteAtEnd(node* &head, node* &tail) {
+	if (head == NULL) { // If LL is empty
+		return;
+	}
+	if (head->next == NULL) {// if LL contains only a single node
+		delete head;
+		head = tail = NULL;
+	}
+	else {
+		node* temp = head;
+		while (temp->next != tail) {
+			temp = temp->next;
+		}
+		delete tail;
+		tail = temp;
+		tail->next = NULL;
+	}
+}
+
+void DeleteAtMid(node* &head, node* &tail, int pos) {
+	if (pos == 0) {
+		DeleteAtFront(head, tail);
+	}
+	else if (pos == lengthLL(head) - 1) {
+		DeleteAtEnd(head, tail);
+	}
+	else if (pos >= lengthLL(head)) {
+		return;
+	}
+	else {
+		node* temp = head;
+		for (int i = 1; i < pos ; i++) {
+			temp = temp->next;
+		}
+
+		node* t1 = temp->next;
+		temp->next = t1->next;
+		delete t1;
+	}
+}
+////////////////////////////////////// DELETE ////////////////////////////////////
 
 void print(node* head) {
 	while (head != NULL) {
@@ -119,7 +176,15 @@ int main() {
 
 
 	print(head);
-	insertAtMid(head, tail, 100, 10);
+
+	// insertAtMid(head, tail, 100, 10);
+	// DeleteAtFront(head, tail);
+	// DeleteAtFront(head, tail);
+	// DeleteAtEnd(head, tail);
+	// DeleteAtEnd(head, tail);
+	DeleteAtMid(head, tail, 3);
+	print(head);
+	DeleteAtMid(head, tail, 2);
 	print(head);
 	search(head, 60);
 	bool ans = searchRecursively(head, 30);
