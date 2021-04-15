@@ -46,7 +46,6 @@ void insertAtEnd(node* &head, node* &tail, int d) {
 }
 
 void insertAtMid(node* &head, node* &tail, int d, int pos) {
-
 	if (pos == 0) {
 		insertAtFront(head, tail, d);
 	}
@@ -62,6 +61,38 @@ void insertAtMid(node* &head, node* &tail, int d, int pos) {
 		n->next = temp->next;
 		temp->next = n;
 	}
+}
+
+void search(node* head, int key) {
+	// bool isKeyPresent = false;
+	while (head != NULL) {
+		if (head->data == key) {
+			cout << "Key is present" << endl;
+			// isKeyPresent = true;
+			break;
+		}
+		head = head->next;
+	}
+	if (head == NULL) {
+		cout << "Key is not present" << endl;
+	}
+}
+
+bool searchRecursively(node* head, int key) {
+	// base case
+	if (head == NULL) {
+		return false;
+	}
+
+	// recursive case
+	if (head->data == key) {
+		// cout << "Key Present" << endl;
+		return true;
+	}
+	else {
+		return searchRecursively(head->next, key);
+	}
+
 }
 
 void print(node* head) {
@@ -90,6 +121,14 @@ int main() {
 	print(head);
 	insertAtMid(head, tail, 100, 10);
 	print(head);
+	search(head, 60);
+	bool ans = searchRecursively(head, 30);
+	if (ans) {
+		cout << "Key Found" << endl;
+	}
+	else {
+		cout << "Key Not Found" << endl;
+	}
 	cout << lengthLL(head) << endl;
 
 	return 0;
