@@ -60,6 +60,7 @@ node* mid(node* head) {
 
 void ReverseLL(node* &head) {
 	node* c = head, *prev = NULL, *n;
+
 	while (c != NULL) {
 		n = c->next;
 		c->next = prev;
@@ -67,6 +68,21 @@ void ReverseLL(node* &head) {
 		c = n;
 	}
 	head = prev;
+}
+
+node* FindLastKth(node* head, int k) {
+	node* s, *f;
+	s = f = head;
+
+	while (k--) {
+		f = f ->next;
+	}
+
+	while (f != NULL) {
+		f = f -> next;
+		s = s->next;
+	}
+	return s;
 }
 
 int main() {
@@ -79,12 +95,15 @@ int main() {
 	insertAtEnd(head, 4);
 	insertAtEnd(head, 5);
 	insertAtEnd(head, 6);
-	insertAtEnd(head, 7);
+	// insertAtEnd(head, 7);
 	print(head);
-	ReverseLL(head);
-	print(head);
+	// ReverseLL(head);
+	// print(head);
 	// node* ans = mid(head);
 	// cout << "Middle element is " << ans->data << endl;
+
+	node* ans = FindLastKth(head, 4);
+	cout << "Last Kth Element is " << ans->data << endl;
 
 	return 0;
 }
