@@ -55,12 +55,21 @@ node* mid(node* head) {
 		f = f->next->next;
 		s = s->next;
 	}
-
 	return s;
 }
 
-int main() {
+void ReverseLL(node* &head) {
+	node* c = head, *prev = NULL, *n;
+	while (c != NULL) {
+		n = c->next;
+		c->next = prev;
+		prev = c;
+		c = n;
+	}
+	head = prev;
+}
 
+int main() {
 	node* head;
 	head = NULL;
 
@@ -71,12 +80,11 @@ int main() {
 	insertAtEnd(head, 5);
 	insertAtEnd(head, 6);
 	insertAtEnd(head, 7);
-
 	print(head);
-
-	node* ans = mid(head);
-	cout << "Middle element is " << ans->data << endl;
-
+	ReverseLL(head);
+	print(head);
+	// node* ans = mid(head);
+	// cout << "Middle element is " << ans->data << endl;
 
 	return 0;
 }
