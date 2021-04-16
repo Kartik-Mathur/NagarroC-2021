@@ -131,6 +131,39 @@ node* mergeSort(node* head) {
 	// return mergeLL(a, b);
 }
 
+void BubbleSort(node* &head) {
+	node* c, * prev, * n;
+	int len = lengthLL(head); // this is number of nodes
+
+	for (int i = 1 ; i <= len - 1 ; i++) {
+		prev = NULL;
+		c = head;
+		while (c != NULL and c->next != NULL) {
+			n = c->next;
+			if (c->data > n->data) {
+				// swapping will take place
+				if (prev == NULL) {
+					// 1. head changes
+					c->next = n->next;
+					n->next = c;
+					head = prev = n;
+				}
+				else {
+					// 2. head doesnot change
+					c->next = n->next;
+					n->next = c;
+					prev->next = n;
+					prev = n;
+				}
+			}
+			else {
+				// No swapping
+				prev = c;
+				c = c->next;
+			}
+		}
+	}
+}
 
 int main() {
 	node* head, *head1;
@@ -156,7 +189,8 @@ int main() {
 
 	// node* newHead = mergeLL(head, head1);
 	// print(newHead);
-	head = mergeSort(head);
+	// head = mergeSort(head);
+	BubbleSort(head);
 	// ReverseLL(head);
 	print(head);
 	// node* ans = mid(head);
