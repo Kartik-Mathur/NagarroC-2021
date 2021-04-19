@@ -75,8 +75,6 @@ bool isCyclic(node* head) {
 	return false;
 }
 
-
-
 void CreateCycle(node* head) {
 
 	node* temp = head;
