@@ -52,11 +52,14 @@ int bottomUp(int amt, int *deno, int m) {
 
 	dp[0] = 0;
 	for (int rupay = 1 ; rupay <= amt ; rupay++) {
+		// int ans = INT_MAX;
 		for (int i = 0 ; i < m ; i++) {
 			if (rupay >= deno[i]) {
+				// ans = min(ans, dp[rupay - deno[i]]);
 				dp[rupay] = min(1 + dp[rupay - deno[i]], dp[rupay]);
 			}
 		}
+		// dp[rupay] = min(dp[rupay], ans) + 1;
 	}
 
 	for (int i = 0; i <= amt ; i++) {
